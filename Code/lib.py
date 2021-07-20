@@ -309,7 +309,7 @@ def get_type_mid(col, w, h):
 # TODO Aggressive filtration to separate consecutive same-colored blocks
 # NOT FUNCTIONNING
 def separate(listofblocks):
-
+    """
     for _, bloc in enumerate(listofblocks):
         if bloc[vocab.HEIGHT] >= vocab.MAXHEIGHT:
             bigBlock = cv2.Canny(bloc[vocab.IMAGE], 0, 50)
@@ -325,7 +325,7 @@ def separate(listofblocks):
             cv2.imshow("Canny" + str(bloc[vocab.NAME]), bigBlock)
             cv2.imshow("Big" + str(bloc[vocab.NAME]) + "Block", horizontal)
             cv2.drawContours(bigBlock, contours, -1, (255, 255, 255))
-
+    """
     return listofblocks
 
 
@@ -416,7 +416,7 @@ def get_cubarithm(listofblocks, blk_low, blk_upp):
 
                     out[it] = [vocab.CUBEVALUE.get(key, vocab.UNKNOWN), x]
                     # print(key)
-                    cv2.imshow(bloc[vocab.NAME] + "_" + str(vocab.CUBEVALUE.get(key, "Inconnu")), warped)
+                    # cv2.imshow(bloc[vocab.NAME] + "_" + str(vocab.CUBEVALUE.get(key, "Inconnu")), warped)
                     nbit += 1
 
             while [0, 0] in out:

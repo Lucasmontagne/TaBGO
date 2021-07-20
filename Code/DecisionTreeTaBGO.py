@@ -1,8 +1,8 @@
 # Libraries
 import cv2
 import numpy as np
-import lib
-import vocab
+from Code import lib
+from Code import vocab
 import sys
 
 # Capturing video through webcam BRIO

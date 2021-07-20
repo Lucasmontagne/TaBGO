@@ -3,7 +3,7 @@ import cv2
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-import vocab
+from Code import vocab
 
 
 # Returns the background image when the camera is 461mm above the scene

@@ -1,5 +1,4 @@
-# Vocabulary
-
+# Vocabulary needed in other files
 
 # Color class
 BLUE = "Blue"
@@ -8,9 +7,6 @@ YELLOW = "Yellow"
 ORANGE = "Orange"
 PURPLE = "Purple"
 BLACK = "Black"
-""" TEST """
-WOOD = "Wood"
-""" END TEST  """
 
 # Block Info
 NAME = 0

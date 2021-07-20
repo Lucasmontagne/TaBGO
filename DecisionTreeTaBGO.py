@@ -1,3 +1,4 @@
+# Libraries
 import cv2
 import numpy as np
 import lib
@@ -6,10 +7,6 @@ import sys
 
 # Capturing video through webcam BRIO
 webcam = cv2.VideoCapture(cv2.CAP_DSHOW)
-"""cv2.namedWindow("Cascade")
-cv2.createTrackbar("Scale", "Cascade", 400, 1000, lib.empty)
-cv2.createTrackbar("Neig", "Cascade", 8, 20, lib.empty)
-cv2.createTrackbar("Brightness", "Cascade", 128, 255, lib.empty)"""
 
 # Webcam parameters
 webcam.set(cv2.CAP_PROP_FRAME_WIDTH, 3840)  # -1280
@@ -55,7 +52,7 @@ lst_memo = []
 end = []
 
 # Number of different measures
-repeat = 10000
+repeat = 1000
 cpt_rep = 0
 
 
@@ -71,11 +68,6 @@ while cpt_rep < repeat:
 
     # Convert every frame in HSV env. from BGR to HSV (color angle, saturation, brightness)
     hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV)
-
-    bright = cv2.getTrackbarPos("Brightness", "Cascade")
-    webcam.set(cv2.CAP_PROP_BRIGHTNESS, bright)  # default 128
-    """gray = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2GRAY)
-    lib.get_cascade(gray)"""
 
     # See color lvls. for masks config.
     """
@@ -108,7 +100,7 @@ while cpt_rep < repeat:
 
     ###################################################################################################################
     # Separation and sorting zone
-    # """
+
     end_list = []
     if cpt_rep > 10:
     
@@ -134,18 +126,17 @@ while cpt_rep < repeat:
         ################################################################################################################
 
         # Show relevant info
-        print("\n" + str(lib.extract(last_list_img, vocab.NAME)) + "\n"
+        """print("\n" + str(lib.extract(last_list_img, vocab.NAME)) + "\n"
               # + str(lib.extract(list_img_blocks, vocab.WIDTH)) + "\n"
               # + str(lib.extract(list_img_blocks, vocab.HEIGHT)) + "\n"
-              + str(lib.extract(last_list_img, vocab.INTRACLASS)) + "\n"
+              # + str(lib.extract(last_list_img, vocab.INTRACLASS)) + "\n"
               # + str(lib.extract(last_list_img, vocab.UNICITY)) + "\n"
               # + str(lib.extract(last_list_img, vocab.SLOTNUMBER)) + "\n"
               # + str(lib.extract(last_list_img, vocab.PIN_1)) + "\n"
               # + str(lib.extract(last_list_img, vocab.PIN_2)) + "\n"
-              )
-    # """
-    # Average results
+              )"""
 
+    # Average results
     if cpt_rep % vocab.COUNT_MODULO != 0:
         myStr = "[" + "#" * ((cpt_rep - 1) % vocab.COUNT_MODULO) + " " * (
                     (vocab.COUNT_MODULO-2) - ((cpt_rep - 1) % vocab.COUNT_MODULO)) + "]"
